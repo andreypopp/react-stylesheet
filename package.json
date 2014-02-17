@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "description": "A component for React to inject stylesheets links into document's head",
   "main": "index.js",
-  "dependencies": {
-    "react": "~0.9.0-alpha",
-    "envify": "~0.2.0"
+  "devDependencies": {
+    "react": "~0.9.0-rc1"
   },
-  "devDependencies": {},
+  "peerDependencies": {
+    "react": "~0.9.0-rc1"
+  },
   "scripts": {
     "test": "make test"
   },

@@ -1,8 +1,5 @@
 "use strict";
 
-var escapeTextForBrowser  = require('react/lib/escapeTextForBrowser');
-var wrapUserProvidedKey   = require('./wrapUserProvidedKey');
-
 /**
  * Create markup for stylesheet image.
  *
@@ -13,10 +10,8 @@ var wrapUserProvidedKey   = require('./wrapUserProvidedKey');
  * @param {String} references
  */
 function createMarkup(rootNodeID, href, references) {
-  var key = escapeTextForBrowser(wrapUserProvidedKey(href));
   return (
     '<link rel="stylesheet" href="' + href + '"' +
-      ' data-reactid="' + rootNodeID + '.' + key + '"' +
       ' data-references="' + references + '"' + '></link>'
   );
 }

@@ -1,3 +1,5 @@
+"use strict";
+
 var React                   = require('react');
 var renderComponentToString = require('./renderComponentToString');
 var renderComponent         = require('./renderComponent');

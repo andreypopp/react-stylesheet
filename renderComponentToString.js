@@ -1,7 +1,6 @@
 "use strict";
 
 var React                 = require('react');
-var ReactMarkupChecksum   = require('react/lib/ReactMarkupChecksum');
 var StylesheetImage       = require('./StylesheetImage');
 
 var renderComponentToStringImpl = React.renderComponentToString;
@@ -20,24 +19,9 @@ function renderComponentToString(component) {
       component.__stylesheets,
       component.__stylesheets_headNodeID
     );
-    markup = stripChecksumFromMarkup(markup);
-    markup = ReactMarkupChecksum.addChecksumToMarkup(markup);
   }
   return markup;
 
-}
-
-/**
- * Strip checksum from markup.
- *
- * @private
- *
- * @param {String} markup
- */
-function stripChecksumFromMarkup(markup) {
-  return markup.replace(
-    new RegExp(' ' + ReactMarkupChecksum.CHECKSUM_ATTR_NAME + '="[^"]+"'),
-    '');
 }
 
 /**
