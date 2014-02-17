@@ -1,0 +1,28 @@
+{
+  "name": "react-stylesheet",
+  "version": "0.0.0",
+  "description": "A component for React to inject stylesheets links into document's head",
+  "main": "index.js",
+  "dependencies": {
+    "react": "~0.9.0-alpha",
+    "envify": "~0.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andreypopp/react-stylesheet"
+  },
+  "keywords": [
+    "react-component",
+    "stylesheet"
+  ],
+  "author": "Andrey Popp <8mayday@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andreypopp/react-stylesheet/issues"
+  },
+  "homepage": "https://github.com/andreypopp/react-stylesheet"
+}
