@@ -1,7 +1,7 @@
 {
   "name": "react-stylesheet",
   "version": "0.0.0",
-  "description": "A component for React to inject stylesheets links into document's head",
+  "description": "A component for React to declare stylesheet dependencies",
   "main": "index.js",
   "devDependencies": {
     "react": "~0.9.0-rc1",
