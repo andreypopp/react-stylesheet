@@ -1,6 +1,6 @@
 # react-stylesheet
 
-A component for React to inject stylesheets links into document's head.
+A component for React to inject stylesheet links into document's head.
 
 ## Installation
 
