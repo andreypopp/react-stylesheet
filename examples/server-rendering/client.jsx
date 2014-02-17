@@ -53,11 +53,18 @@ var RedButton = React.createClass({
 });
 
 var BlueButton = React.createClass({
+  mixins: [Stylesheet.StylesheetMixin],
+
+  getStylesheets: function() {
+    return [
+      "styles/button.css",
+      "styles/blue-button.css"
+    ];
+  },
+
   render: function() {
     return (
       <a className="Button BlueButton" onClick={this.props.onClick.bind(null, true)}>
-        <Stylesheet href="styles/button.css" />
-        <Stylesheet href="styles/blue-button.css" />
         BLUE
       </a>
     );

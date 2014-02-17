@@ -11,7 +11,7 @@ function createMarkup(href) {
   return '<link rel="stylesheet" data-react-stylesheet="true" href="' + href + '">';
 }
 
-function createElement(href) {
+function createNode(href) {
   var link = document.createElement('link');
   link.dataset.reactStylesheet = "true";
   link.rel = 'stylesheet';
@@ -21,5 +21,5 @@ function createElement(href) {
 
 module.exports = {
   createMarkup: createMarkup,
-  createElement: createElement
+  createNode: createNode
 };

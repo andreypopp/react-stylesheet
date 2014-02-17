@@ -42,6 +42,29 @@ inserted into document's head.
 The idea is that you should be able to add stylesheets to the document even if
 your component doesn't render the `<head>` element.
 
+## Mixin API
+
+Alternatively you can use `StylesheetMixin` and provide `getStylesheets()`
+method on your component:
+
+    var Stylesheet = require('react-stylesheet');
+
+    var Button = React.createClass({
+      mixins: [Stylesheet.StylesheetMixin],
+
+      getStylesheets: function() {
+        return ["/assets/widgets/button.css"];
+      },
+
+      render: function() {
+        return (
+          <a>
+            ...
+          </a>
+        );
+      }
+    });
+
 ## Using with require-assets
 
 If you are using [require-assets][] library to reference static assets from npm
