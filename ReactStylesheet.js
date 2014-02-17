@@ -57,7 +57,7 @@ var ReactStylesheet = React.createClass({
 
     var image = this.getImage();
     if (!image) {
-      var element = StylesheetImage.createElement('', this.props.href, 1);
+      var element = StylesheetImage.createElement(this.props.href, 1);
       if (document.head.firstChild) {
         document.head.insertBefore(element, document.head.firstChild);
       } else {

@@ -12,13 +12,8 @@ var renderComponentToStringImpl = React.renderComponentToString;
  */
 function renderComponentToString(component) {
   var markup = renderComponentToStringImpl(component);
-
-  if (component.__stylesheets_headNodeID && component.__stylesheets) {
-    markup = injectStylesheetImages(
-      markup,
-      component.__stylesheets,
-      component.__stylesheets_headNodeID
-    );
+  if (component.__stylesheets) {
+    markup = injectStylesheetImages(markup, component.__stylesheets);
   }
   return markup;
 
@@ -31,12 +26,11 @@ function renderComponentToString(component) {
  *
  * @param {String} markup
  * @param {Object} stylesheets
- * @param {String} headNodeID
  */
-function injectStylesheetImages(markup, stylesheets, headNodeID) {
+function injectStylesheetImages(markup, stylesheets) {
   var injection = [];
   for (var href in stylesheets)
-    injection.push(StylesheetImage.createMarkup(headNodeID, href, stylesheets[href]));
+    injection.push(StylesheetImage.createMarkup(href, stylesheets[href]));
   injection = injection.join('');
   markup = markup.replace(/<head[^>]*>/, function(m) { return m + injection });
   return markup;
