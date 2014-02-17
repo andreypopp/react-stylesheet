@@ -10,7 +10,7 @@ var App = React.createClass({
     return (
       <html>
         <head>
-          <link rel="stylesheet" href="styles/main.css" />
+          <Stylesheet href="styles/main.css" />
           <script src="bundle.js"></script>
         </head>
         <body>
