@@ -1,11 +1,8 @@
 "use strict";
 
-var RootCommunication = require('./RootCommunication');
 var StylesheetImage   = require('./StylesheetImage');
 
 var ReactStylesheetMixin = {
-
-  getRootComponent: RootCommunication.getRootComponent,
 
   getImages: function() {
     var stylesheets = this.getStylesheets();
@@ -34,7 +31,7 @@ var ReactStylesheetMixin = {
 
   componentWillMount: function() {
     var stylesheets = this.getStylesheets();
-    var root = this.getRootComponent();
+    var root = getRootComponent(this);
     var registry = root.__stylesheets = root.__stylesheets || {};
 
     for (var i = 0, len = stylesheets.length; i < len; i++) {
@@ -51,9 +48,26 @@ var ReactStylesheetMixin = {
   },
 };
 
+
+/**
+ * Get root component in the hierarchy
+ *
+ * @private
+ *
+ * @param {ReactComponent} component
+ */
+function getRootComponent(component) {
+  while (component._owner) {
+    component = component._owner;
+  }
+  return component;
+}
+
 /**
  * Insert stylesheet image into document's head as a link node in a
  * "deterministic" order.
+ *
+ * @private
  *
  * @param {DOMNode} node
  */
