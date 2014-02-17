@@ -40,7 +40,7 @@ After rendering the component hierarchy, all declared stylesheets will be
 inserted into document's head.
 
 The idea is that you should be able to add stylesheets to the document even if
-your component don't render the `<head>` element.
+your component doesn't render the `<head>` element.
 
 ## Using with require-assets
 
