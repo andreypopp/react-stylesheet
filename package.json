@@ -4,7 +4,10 @@
   "description": "A component for React to inject stylesheets links into document's head",
   "main": "index.js",
   "devDependencies": {
-    "react": "~0.9.0-rc1"
+    "react": "~0.9.0-rc1",
+    "reactify": "~0.7.0",
+    "express": "~3.4.8",
+    "browserify": "~3.30.1"
   },
   "peerDependencies": {
     "react": "~0.9.0-rc1"

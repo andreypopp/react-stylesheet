@@ -8,6 +8,9 @@ var renderComponentToStringImpl = React.renderComponentToString;
 /**
  * Render component to string
  *
+ * This mimics the original React.renderComponentToString but injects collected
+ * stylesheets into markup's <head>.
+ *
  * @param {Component} component
  */
 function renderComponentToString(component) {
@@ -28,10 +31,9 @@ function renderComponentToString(component) {
  * @param {Object} stylesheets
  */
 function injectStylesheetImages(markup, stylesheets) {
-  var injection = [];
-  for (var href in stylesheets)
-    injection.push(StylesheetImage.createMarkup(href, stylesheets[href]));
-  injection = injection.join('');
+  var injection = Object.keys(stylesheets)
+    .map(StylesheetImage.createMarkup)
+    .join('');
   markup = markup.replace(/<head[^>]*>/, function(m) { return m + injection });
   return markup;
 }

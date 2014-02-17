@@ -3,7 +3,7 @@
  */
 
 var React       = require('react');
-var Stylesheet  = require('react-stylesheet');
+var Stylesheet  = require('../../');
 
 var App = React.createClass({displayName: 'App',
   render: function() {
