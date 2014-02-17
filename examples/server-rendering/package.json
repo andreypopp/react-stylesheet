@@ -1,0 +1,19 @@
+{
+  "name": "react-stylesheet-example-server-rendering",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "jsx client.jsx > client.js && browserify -d -t reactify client.js > bundle.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "react": "~0.9.0-rc1",
+    "reactify": "~0.7.0",
+    "browserify": "~3.30.1",
+    "express": "~3.4.8"
+  }
+}
