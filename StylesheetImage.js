@@ -8,11 +8,12 @@
  * @param {String} href
  */
 function createMarkup(href) {
-  return '<link rel="stylesheet" href="' + href + '">';
+  return '<link rel="stylesheet" data-react-stylesheet="true" href="' + href + '">';
 }
 
 function createElement(href) {
   var link = document.createElement('link');
+  link.dataset.reactStylesheet = "true";
   link.rel = 'stylesheet';
   link.href = href;
   return link;
