@@ -16,10 +16,11 @@ function createMarkup(href, references) {
 }
 
 function createElement(href, references) {
-  var markup = createMarkup(href, references);
-  var container = document.createElement('head');
-  container.innerHTML = markup;
-  return container.children[0];
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = href;
+  link.setAttribute('data-references', references);
+  return link;
 }
 
 module.exports = {
