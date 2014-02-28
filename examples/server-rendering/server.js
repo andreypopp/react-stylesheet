@@ -8,7 +8,6 @@ express()
   .get('/', function(req, res, next) {
     try {
       var markup = React.renderComponentToString(App());
-      console.log(markup);
       res.send(markup);
     } catch(err) {
       next(err);
