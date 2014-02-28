@@ -1,75 +1,57 @@
 # react-stylesheet
 
-A component for React to declare stylesheet dependencies for your reusable
-components.
+A mixin for React components to declare stylesheet dependencies.
+
+## Motivation
+
+We want to create React components which are completely self-contained and
+include all needed styling. Such components should be distributed using a
+package manager (probably npm) and be easy to reuse.
 
 ## Installation
 
-    % npm install react-stylsheets
+    % npm install react-stylsheet
 
 ## Usage
 
-Use `<Stylesheet />` component to declare a stylesheet dependency:
+Library exports a single mixin `ReactStylesheet` which expects a component to
+implement `getStylesheets()` method which should return a list of URL to
+stylesheets:
 
-    var React       = require('react');
-    var Stylesheet  = require('react-stylesheet');
-
-    var App = React.createClass({
-      render: function() {
-        return (
-          <div>
-            <Stylesheet href="/assets/app.css" />
-            <Button />
-          </div>
-        );
-      }
-    });
+    var React           = require('react')
+    var ReactStylesheet = require('react-stylesheet')
 
     var Button = React.createClass({
-      render: function() {
-        return (
-          <a>
-            <Stylesheet href="/assets/widgets/button.css" />
-            ...
-          </a>
-        );
-      }
-    });
+      mixins: [ReactStylesheet],
 
-After rendering the component hierarchy, all declared stylesheets will be
-inserted into document's head.
+      getStylesheets: function() {
+        return [
+          "/assets/widgets/button.css"
+        ]
+      },
+
+      render: function() {
+        return <a>{this.props.label}</a>
+      }
+    })
+
+After rendering the component, the declared stylesheets will be inserted into
+document's head.
 
 The idea is that you should be able to add stylesheets to the document even if
 your component doesn't render the `<head>` element.
 
-## Mixin API
-
-Alternatively you can use `StylesheetMixin` and provide `getStylesheets()`
-method on your component:
-
-    var Stylesheet = require('react-stylesheet');
-
-    var Button = React.createClass({
-      mixins: [Stylesheet.StylesheetMixin],
-
-      getStylesheets: function() {
-        return ["/assets/widgets/button.css"];
-      },
-
-      render: function() {
-        return (
-          <a>
-            ...
-          </a>
-        );
-      }
-    });
+But it's obvious that knowing all URLs beforehand when packaging a reusable
+component isn't possible. Fortunately, there are tools which address that.
 
 ## Using with require-assets
 
-If you are using [require-assets][] library to reference static assets from npm
-packages, you can pass a result of `requireAssets(...)` call directly to
-`Stylesheet` component:
+You can use [require-assets][] library to reference static assets from npm
+packages. This library exports a single function `requireAssets` which resolve
+an asset identifier into an URL.
+
+You can use it to implement `getStylesheets()` method for your reusable styled
+components:
 
     var React         = require('react');
     var Stylesheet    = require('react-stylesheet');
