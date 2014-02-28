@@ -2,15 +2,22 @@
  * @jsx React.DOM
  */
 
-var React       = require('react');
-var Stylesheet  = require('../../');
+var React             = require('react');
+var ReactStylesheet   = require('../../');
 
 var App = React.createClass({
+  mixins: [ReactStylesheet],
+
+  getStylesheets: function() {
+    return [
+      "styles/main.css",
+    ];
+  },
+
   render: function() {
     return (
       <html>
         <head>
-          <Stylesheet href="styles/main.css" />
           <script src="bundle.js"></script>
         </head>
         <body>
@@ -25,13 +32,15 @@ var Body = React.createClass({
   getInitialState: function() {
     return {coin: true};
   },
+
   onClick: function(coin) {
     this.setState({coin: coin});
   },
+
   render: function() {
     return (
       <div>
-        Hello!
+        <p>Hello!</p>
         {this.state.coin ?
           <RedButton onClick={this.onClick} /> :
           <BlueButton onClick={this.onClick} />}
@@ -41,19 +50,26 @@ var Body = React.createClass({
 });
 
 var RedButton = React.createClass({
+  mixins: [ReactStylesheet],
+
+  getStylesheets: function() {
+    return [
+      "styles/button.css",
+      "styles/red-button.css"
+    ];
+  },
+
   render: function() {
     return (
-      <a className="Button RedButton" onClick={this.props.onClick.bind(null, false)}>
-        <Stylesheet href="styles/button.css" />
-        <Stylesheet href="styles/red-button.css" />
-        RED
-      </a>
+      <a
+        className="Button RedButton"
+        onClick={this.props.onClick.bind(null, false)}>RED</a>
     );
   }
 });
 
 var BlueButton = React.createClass({
-  mixins: [Stylesheet.StylesheetMixin],
+  mixins: [ReactStylesheet],
 
   getStylesheets: function() {
     return [
@@ -64,9 +80,9 @@ var BlueButton = React.createClass({
 
   render: function() {
     return (
-      <a className="Button BlueButton" onClick={this.props.onClick.bind(null, true)}>
-        BLUE
-      </a>
+      <a
+        className="Button BlueButton"
+        onClick={this.props.onClick.bind(null, true)}>BLUE</a>
     );
   }
 });
@@ -76,4 +92,5 @@ if (typeof window !== 'undefined') {
     React.renderComponent(App(), document);
   }
 }
+
 module.exports = App;

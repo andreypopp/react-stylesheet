@@ -1,12 +1,14 @@
 var React   = require('react');
-var App     = require('./client');
 var express = require('express');
+var nodejsx = require('node-jsx').install();
+var App     = require('./client');
 
 express()
   .use(express.static(__dirname))
   .get('/', function(req, res, next) {
     try {
       var markup = React.renderComponentToString(App());
+      console.log(markup);
       res.send(markup);
     } catch(err) {
       next(err);

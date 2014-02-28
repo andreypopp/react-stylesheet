@@ -4,13 +4,15 @@
   "description": "A component for React to declare stylesheet dependencies",
   "main": "index.js",
   "devDependencies": {
-    "react": "~0.9.0-rc1",
-    "reactify": "~0.7.0",
+    "react": "~0.9.0",
+    "node-jsx": "~0.9.0",
+    "reactify": "~0.9.0",
     "express": "~3.4.8",
-    "browserify": "~3.30.1"
+    "browserify": "~3.30.1",
+    "jshint": "^2.4.4"
   },
   "peerDependencies": {
-    "react": "~0.9.0-rc1"
+    "react": "~0.9.0"
   },
   "scripts": {
     "test": "make test"

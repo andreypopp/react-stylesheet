@@ -2,10 +2,16 @@
  * @jsx React.DOM
  */
 
-var React       = require('react');
-var Stylesheet  = require('../../');
+var React           = require('react');
+var ReactStylesheet = require('../../');
 
 var App = React.createClass({
+  mixins: [ReactStylesheet],
+
+  getStylesheets: function() {
+    return ["styles/main.css"];
+  },
+
   getInitialState: function() {
     return {coin: true};
   },
@@ -15,7 +21,6 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <Stylesheet href="styles/main.css" />
         Hello!
         {this.state.coin ?
           <RedButton onClick={this.onClick} /> :
@@ -26,11 +31,18 @@ var App = React.createClass({
 });
 
 var RedButton = React.createClass({
+  mixins: [ReactStylesheet],
+
+  getStylesheets: function() {
+    return [
+      "styles/button.css",
+      "styles/red-button.css"
+    ];
+  },
+
   render: function() {
     return (
       <a className="Button RedButton" onClick={this.props.onClick.bind(null, false)}>
-        <Stylesheet href="styles/button.css" />
-        <Stylesheet href="styles/red-button.css" />
         RED
       </a>
     );
@@ -38,7 +50,7 @@ var RedButton = React.createClass({
 });
 
 var BlueButton = React.createClass({
-  mixins: [Stylesheet.StylesheetMixin],
+  mixins: [ReactStylesheet],
 
   getStylesheets: function() {
     return [
