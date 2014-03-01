@@ -15,8 +15,7 @@ package manager (probably npm) and be easy to reuse.
 ## Usage
 
 Library exports a single mixin `ReactStylesheet` which expects a component to
-implement `getStylesheets()` method which should return a list of URL to
-stylesheets:
+provide `stylesheets` attribute which should be an array of URLs to stylesheets:
 
     var React           = require('react')
     var ReactStylesheet = require('react-stylesheet')
@@ -24,11 +23,9 @@ stylesheets:
     var Button = React.createClass({
       mixins: [ReactStylesheet],
 
-      getStylesheets: function() {
-        return [
-          "/assets/widgets/button.css"
-        ]
-      },
+      stylesheets: [
+        "/assets/widgets/button.css"
+      ],
 
       render: function() {
         return <a>{this.props.label}</a>
@@ -50,23 +47,19 @@ You can use [require-assets][] library to reference static assets from npm
 packages. This library exports a single function `requireAssets` which resolve
 an asset identifier into an URL.
 
-You can use it to implement `getStylesheets()` method for your reusable styled
-components:
-
-    var React         = require('react');
-    var Stylesheet    = require('react-stylesheet');
-    var requireAssets = require('require-assets');
+    var React           = require('react');
+    var ReactStylesheet = require('react-stylesheet');
+    var requireAssets   = require('require-assets');
 
     var Button = React.createClass({
+      stylesheets: [
+        requireAssets('./styles.css')
+      ],
+
       render: function() {
-        return (
-          <a>
-            <Stylesheet href={requireAssets('./index.css')}/>
-            ...
-          </a>
-        );
+        return <a>this.props.children</a>
       }
-    });
+    })
 
 [require-assets]: https://github.com/andreypopp/require-assets
 

@@ -8,9 +8,9 @@ var ReactStylesheet = require('../../');
 var App = React.createClass({
   mixins: [ReactStylesheet],
 
-  getStylesheets: function() {
-    return ["styles/main.css"];
-  },
+  stylesheets: [
+    "styles/main.css"
+  ],
 
   getInitialState: function() {
     return {coin: true};
@@ -33,12 +33,10 @@ var App = React.createClass({
 var RedButton = React.createClass({
   mixins: [ReactStylesheet],
 
-  getStylesheets: function() {
-    return [
-      "styles/button.css",
-      "styles/red-button.css"
-    ];
-  },
+  stylesheets: [
+    "styles/button.css",
+    "styles/red-button.css"
+  ],
 
   render: function() {
     return (
@@ -52,12 +50,10 @@ var RedButton = React.createClass({
 var BlueButton = React.createClass({
   mixins: [ReactStylesheet],
 
-  getStylesheets: function() {
-    return [
-      "styles/button.css",
-      "styles/blue-button.css"
-    ];
-  },
+  stylesheets: [
+    "styles/button.css",
+    "styles/blue-button.css"
+  ],
 
   render: function() {
     return (
