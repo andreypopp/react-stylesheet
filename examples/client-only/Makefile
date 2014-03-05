@@ -1,5 +1,5 @@
 BIN = ../../node_modules/.bin
-PATH := $(BIN)/$(PATH)
+PATH := $(BIN):$(PATH)
 
 build: bundle.js
 

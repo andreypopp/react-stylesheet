@@ -1,5 +1,5 @@
 BIN = ../../node_modules/.bin
-PATH := $(BIN)/$(PATH)
+PATH := $(BIN):$(PATH)
 
 start: build
 	@node server.js
