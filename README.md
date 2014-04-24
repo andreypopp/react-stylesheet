@@ -10,7 +10,7 @@ package manager (probably npm) and be easy to reuse.
 
 ## Installation
 
-    % npm install react-stylsheet
+    % npm install react-stylesheet
 
 ## Usage
 
