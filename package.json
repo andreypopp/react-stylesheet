@@ -4,7 +4,7 @@
   "description": "A component for React to declare stylesheet dependencies",
   "main": "index.js",
   "devDependencies": {
-    "react": "~0.9.0",
+    "react": "~0.13.0",
     "node-jsx": "~0.9.0",
     "reactify": "~0.9.0",
     "express": "~3.4.8",
@@ -14,6 +14,9 @@
     "phantomic": "^0.4.2",
     "mocha": "^1.17.1",
     "phantomjs": "^1.9.7-1"
+  },
+  "peerDependencies": {
+    "react": "~0.13.0"
   },
   "scripts": {
     "test": "make test"
