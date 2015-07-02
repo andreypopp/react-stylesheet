@@ -1,6 +1,6 @@
 {
   "name": "react-stylesheet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A component for React to declare stylesheet dependencies",
   "main": "index.js",
   "devDependencies": {
