@@ -1,6 +1,6 @@
 # react-stylesheet
 
-Deprecated, see: https://github.com/prometheusresearch/react-stylesheet
+**Deprecated, see**: https://github.com/prometheusresearch/react-stylesheet
 
 A mixin for React components to declare stylesheet dependencies.
 
